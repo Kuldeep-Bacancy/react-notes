@@ -6,7 +6,10 @@
 ```javascript
 import { configureStore } from "@reduxjs/toolkit";
 
-export const store = configureStore({});
+const initialState = {
+  todos: JSON.parse(localStorage.getItem("todos")) || [],
+  todoId: null
+}
 ```
 
 - Next you need to create your reducers
@@ -26,14 +29,20 @@ export const store = configureStore({});
 ```javascript
 export const todoSlice = createSlice({
   name: 'todo',
-  intialState: intialState,
+  initialState,
   reducers:{
     addTodo: (state, action) => {
-      const todo = { id: nanoid(), title: action.payload.title }
+      const todo = { id: nanoid(), text: action.payload }
       state.todos.push(todo)
     },
     removeTodo: (state,action) => {
-      state.todos = state.todos.filter((todo)=>{ todo.id != action.payload.id })
+      state.todos = state.todos.filter((todo)=>todo.id !== action.payload)
+    },
+    updateTodo: (state,action) => {
+      state.todos.find((todo) => todo.id == action.payload.id).text = action.payload.text
+    },
+    currentEditTodoID: (state, action) => {
+      state.todoId = action.payload
     }
   }
 })
@@ -42,7 +51,7 @@ export const todoSlice = createSlice({
 - Also You need to export all reducers.
 
 ```javascript
-export const { addTodo, removeTodo } = todoSlice.actions
+export const { addTodo, removeTodo, updateTodo, currentEditTodoID } = todoSlice.actions
 
 export default todoSlice.reducer
 ```
