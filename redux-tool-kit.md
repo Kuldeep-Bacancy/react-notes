@@ -12,14 +12,14 @@ export const store = configureStore({});
 - Next you need to create your reducers
 - In redux toolkit they known as slices.
 - You can use createSlice to create your slices.
-- Then you have define your intialState using intialState. It can be array, objects, array of objects or anything.
+- Then you have define your intialState using variable e.g. **intialState**. It can be array, objects, array of objects or anything.
 - To create slice you need to define three things in your slice
  1. slice name 
  2. intial state
  3. reducers
 - reducers will contain properties and functions.
 - your reducers have access of two properties. state and action
-- state will give you current state's values.
+- state will give you current state's values which has been stored in store.
 - action will provider you values which you are sending when you are calling methods.
 
 
