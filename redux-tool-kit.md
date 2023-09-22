@@ -1,4 +1,4 @@
-## Redux Toolkit notes
+# Redux Toolkit notes
 
 - First You need to create store where everything will be store like global storage.
 - use configureStore to create Store.
@@ -13,21 +13,24 @@ export const store = configureStore({})
 - In redux toolkit they known as slices.
 - You can use createSlice to create your slices.
 - Then you have define your intialState using variable e.g. **intialState**. It can be array, objects, array of objects or anything.
+
 ```javascript
 const initialState = {
   todos: JSON.parse(localStorage.getItem("todos")) || [],
   todoId: null
 }
 ```
+
 - To create slice you need to define three things in your slice
- 1. slice name 
+
+ 1. slice name
  2. intial state
  3. reducers
+
 - reducers will contain properties and functions.
 - your reducers have access of two properties. state and action
 - state will give you current state's values which has been stored in store.
 - action will provider you values which you are sending when you are calling methods.
-
 
 ```javascript
 export const todoSlice = createSlice({
@@ -50,6 +53,7 @@ export const todoSlice = createSlice({
   }
 })
 ```
+
 - Then you have to export your functionalities which you have define in reducers.
 - Also You need to export all reducers.
 
@@ -85,10 +89,12 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 )
 ```
 
-### How to use state and set state?
+## How to use state and set state?
 
 - There are two hooks which we can use for set state and get state.
+
  1. **dispatch** - When need to update our state we use dispatch. dispatch use reducer to set state in store. useDispatch is used.
+
     ```javascript
       import { useDispatch } from 'react-redux'
       import { addTodo } from '../features/todo/todoSlice'
@@ -102,7 +108,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         setInput('')
       }
     ```
-  2. **selector** - When we need state in our component then we need to use useSelector. We have access **state** variable from where we can get our states.
+
+ 2. **selector** - When we need state in our component then we need to use useSelector. We have access **state** variable from where we can get our states.
+
       ```javascript
         const todos = useSelector(state => state.todos)
       ```

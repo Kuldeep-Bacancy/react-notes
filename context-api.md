@@ -1,11 +1,10 @@
-## Context API notes
-
+# Context API notes
 
 - You need to create context using createContext
 - then you have to create Context Provider which provide context to your components
 - then you can craeate custom hook which consumes your context
 
-## Example..........................................
+## Example
 
 ```javascript
 import { createContext, useContext } from "react";
@@ -22,8 +21,7 @@ export default function useTodo(){
 - then you need to wrap your provider to your parent components where you need to share your states
 - You can pass functions, states to the provider which you want to share across comonents using value props.
 
-## Example..........................................
-
+## Example
 
 ```javascript
 import { useState, useEffect } from 'react'
