@@ -6,16 +6,19 @@
 ```javascript
 import { configureStore } from "@reduxjs/toolkit";
 
-const initialState = {
-  todos: JSON.parse(localStorage.getItem("todos")) || [],
-  todoId: null
-}
+export const store = configureStore({})
 ```
 
 - Next you need to create your reducers
 - In redux toolkit they known as slices.
 - You can use createSlice to create your slices.
 - Then you have define your intialState using variable e.g. **intialState**. It can be array, objects, array of objects or anything.
+```javascript
+const initialState = {
+  todos: JSON.parse(localStorage.getItem("todos")) || [],
+  todoId: null
+}
+```
 - To create slice you need to define three things in your slice
  1. slice name 
  2. intial state
