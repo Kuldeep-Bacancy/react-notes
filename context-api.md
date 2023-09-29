@@ -2,7 +2,7 @@
 
 - You need to create context using createContext
 - then you have to create Context Provider which provide context to your components
-- then you can craeate custom hook which consumes your context
+- then you can create custom hook which consumes your context
 
 ## Example
 
